@@ -1,0 +1,4 @@
+
+rootProject.name = "EasyCipher"
+include ':app'
+include ':easycipher'
