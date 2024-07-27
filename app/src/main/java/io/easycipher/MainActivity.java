@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import io.easycipher.test.AESTest;
 import io.easycipher.test.EccTest;
+import io.easycipher.test.EfficiencyTest;
 import io.easycipher.test.RSATest;
 import io.easycipher.test.SHATest;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AsyncTask.SERIAL_EXECUTOR.execute(this::test);
+
+        AsyncTask.SERIAL_EXECUTOR.execute(EfficiencyTest::compareTime);
     }
 
     @SuppressLint("SetTextI18n")

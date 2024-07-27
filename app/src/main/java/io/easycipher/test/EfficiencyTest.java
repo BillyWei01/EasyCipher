@@ -2,7 +2,6 @@ package io.easycipher.test;
 
 import android.util.Log;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,19 +9,19 @@ import io.easycipher.EasyAES;
 
 
 public class EfficiencyTest {
-    public static void compareTime() throws Exception {
+    public static void compareTime() {
         Random r = new Random();
         int n = 500;
 
         ArrayList<byte[]> testData = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
-            int len = r.nextInt(128);
+            int len = r.nextInt(32);
             byte[] bytes = new byte[len];
             r.nextBytes(bytes);
             testData.add(bytes);
         }
 
-        byte[] key = new byte[32];
+        byte[] key = new byte[16];
         byte[] iv = new byte[16];
         r.nextBytes(iv);
         r.nextBytes(key);

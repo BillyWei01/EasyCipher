@@ -3,7 +3,7 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.22.1)
 
 # Declares and names the project.
 
@@ -62,6 +62,8 @@ target_link_libraries( # Specifies the target library.
         # included in the NDK.
         # ${log-lib}
         )
+
+target_link_options(easycipher PRIVATE "-Wl,-z,max-page-size=16384")
 
 #set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -s" )
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -s" )

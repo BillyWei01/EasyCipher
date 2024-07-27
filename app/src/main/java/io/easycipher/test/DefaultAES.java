@@ -20,13 +20,16 @@ class DefaultAES {
         try {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
-            if (iv == null) {
-                cipher.init(mode, keySpec);
-            } else {
-                IvParameterSpec ivSpec = new IvParameterSpec(iv);
-                cipher.init(mode, keySpec, ivSpec);
+            if(cipher != null){
+                if (iv == null) {
+                    cipher.init(mode, keySpec);
+                } else {
+                    IvParameterSpec ivSpec = new IvParameterSpec(iv);
+                    cipher.init(mode, keySpec, ivSpec);
+                }
+                return cipher.doFinal(bytes);
             }
-            return cipher.doFinal(bytes);
+            return null;
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
